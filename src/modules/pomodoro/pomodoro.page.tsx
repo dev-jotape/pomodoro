@@ -1,10 +1,18 @@
 import React, {useState, useEffect} from 'react';
-import {View, StyleSheet, TouchableOpacity, Text, Alert} from 'react-native';
+import {
+  View,
+  StyleSheet,
+  TouchableOpacity,
+  Text,
+  Alert,
+  Platform,
+} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import AsyncStorage from '@react-native-community/async-storage';
 import {CommonActions} from '@react-navigation/native';
-
+import Icon from 'react-native-vector-icons/Feather';
 // import { Container } from './styles';
+import BackgroundTimer from 'react-native-background-timer';
+import Sound from 'react-native-sound';
 
 enum Status {
   pomodoroRound = 'pomodoroRound',
@@ -13,7 +21,7 @@ enum Status {
 }
 
 const inicialMinutes = 0;
-const initialSeconds = 5;
+const initialSeconds = 10;
 
 export const PomodoroPage: React.FC = ({navigation}) => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -23,6 +31,28 @@ export const PomodoroPage: React.FC = ({navigation}) => {
   const [interval, setStateInterval] = useState(null);
   const [status, setStatus] = useState(Status.pomodoroRound);
   const [round, setRound] = useState(1);
+  const [soundPause, setSoundPause] = useState(null);
+  const [soundWork, setSoundWork] = useState(null);
+
+  useEffect(() => {
+    const callback = (error, sound, type) => {
+      console.log('callback');
+      if (error) {
+        Alert.alert('error', error.message);
+        return;
+      }
+      // sound.play();
+      if(type === 'work') setSoundWork(sound);
+      else setSoundPause(sound);
+    };
+
+    const sound1 = new Sound(require('./long-chime-sound.mp3'), (error) =>
+      callback(error, sound1, 'pause'),
+    );
+    const sound2 = new Sound(require('./ding_ding_ding.mp3'), (error) =>
+      callback(error, sound2, 'work'),
+    );
+  }, []);
 
   const startCountDown = (
     stateMinutes: number,
@@ -30,15 +60,21 @@ export const PomodoroPage: React.FC = ({navigation}) => {
     statusParam = Status.pomodoroRound,
     roundParam = round,
   ) => {
+    console.log('iniciou');
     setStatus(statusParam);
     setRound(roundParam);
     setIsPlaying(true);
     setPause(false);
+    if (Platform.OS === 'ios') {
+      BackgroundTimer.start();
+    }
 
-    let createInterval = setInterval(() => {
+    let createInterval = BackgroundTimer.setInterval(() => {
       if (stateSeconds === 0) {
         if (stateMinutes === 0) {
-          clearInterval(createInterval);
+          playSound(statusParam);
+
+          BackgroundTimer.clearInterval(createInterval);
           nextRound(statusParam, roundParam);
         } else {
           stateSeconds = 59;
@@ -51,10 +87,15 @@ export const PomodoroPage: React.FC = ({navigation}) => {
         setSeconds(stateSeconds);
       }
     }, 1000);
-    setStateInterval(createInterval);
+    setStateInterval(createInterval as any);
   };
 
-  const nextRound = (statusParam, roundParam) => {
+  const playSound = (statusParam: string) => {
+    console.log('status ===> ', statusParam);
+    if (statusParam === Status.pomodoroRound) soundPause.play();
+    else soundWork.play()
+  };
+  const nextRound = (statusParam: string, roundParam: number) => {
     if (statusParam === Status.pomodoroRound) {
       roundParam === 4 ? setLongBreak(roundParam) : setSmallBreak(roundParam);
     } else if (statusParam === Status.smallBreak) {
@@ -64,39 +105,38 @@ export const PomodoroPage: React.FC = ({navigation}) => {
     }
   };
 
-  const setTabColor = (status) => {
-    console.log('set tab color => ', status)
+  const setTabColor = (statusParam: string) => {
     navigation.dispatch(
       CommonActions.navigate({
         name: 'Pomodoro',
-        params: {status},
+        params: {statusParam},
       }),
     );
-  }
+  };
 
-  const setLongBreak = (roundParam) => {
+  const setLongBreak = (roundParam: number) => {
     startCountDown(0, 15, Status.longBreak, roundParam);
     setTabColor('break');
   };
 
-  const setSmallBreak = (roundParam) => {
-    startCountDown(0, 5, Status.smallBreak, roundParam + 1);
+  const setSmallBreak = (roundParam: number) => {
+    startCountDown(0, 10, Status.smallBreak, roundParam + 1);
     setTabColor('break');
   };
 
-  const setPomodoroRound = (roundParam) => {
-    startCountDown(0, 5, Status.pomodoroRound, roundParam);
+  const setPomodoroRound = (roundParam: number) => {
+    startCountDown(0, 10, Status.pomodoroRound, roundParam);
     setTabColor('pomodoro');
   };
 
   const pause = () => {
     setPause(true);
     setIsPlaying(false);
-    clearInterval(interval);
+    BackgroundTimer.clearInterval(interval as any);
   };
 
   const reiniciar = () => {
-    clearInterval(interval);
+    BackgroundTimer.clearInterval(interval as any);
     setStatus(Status.pomodoroRound);
     setPause(false);
     setIsPlaying(false);
@@ -143,7 +183,7 @@ export const PomodoroPage: React.FC = ({navigation}) => {
     );
   };
 
-  const formatTime = (time) => {
+  const formatTime = (time: number) => {
     if (time < 10) {
       let stringFormat = time.toString();
       return '0' + stringFormat;
@@ -164,6 +204,26 @@ export const PomodoroPage: React.FC = ({navigation}) => {
     }
   };
 
+  const goToSettings = () => {
+    console.log('go To Settings');
+    navigation.navigate('Settings');
+  };
+
+  const skip = () => {
+    Alert.alert('Deseja realmente pular etapa?', '', [
+      {
+        text: 'SIM',
+        onPress: () => {
+          BackgroundTimer.clearInterval(interval);
+          nextRound(status, round);
+        },
+      },
+      {
+        text: 'NÃO',
+      },
+    ]);
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.pomodoroGroup}>
@@ -176,6 +236,28 @@ export const PomodoroPage: React.FC = ({navigation}) => {
               ? ['#E33B3F', '#E33B3F']
               : ['#17b7dd', '#17b7dd']
           }>
+          <View
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              padding: 20,
+            }}>
+            <TouchableOpacity onPress={() => goToSettings()} style={{}}>
+              <Icon
+                name="settings"
+                size={30}
+                color="white"
+                onPress={() => goToSettings()}
+                style={{padding: 20}}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => skip()}
+              style={{width: 60, height: 50}}>
+              <Text style={styles.skipText}>Pular</Text>
+            </TouchableOpacity>
+          </View>
           <View style={styles.pomodoro}>
             <View>
               <Text style={styles.countDown}>
@@ -232,11 +314,13 @@ const styles = StyleSheet.create({
     flex: 5,
   },
   pomodoro: {
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignItems: 'center',
     height: '100%',
     color: 'white',
   },
+  headerPomodoro: {},
+  headerPular: {},
   goalGroup: {
     flex: 1,
     justifyContent: 'center',
@@ -257,6 +341,7 @@ const styles = StyleSheet.create({
     color: 'white',
     fontFamily: 'Rajdhani-Light',
     fontSize: 100,
+    marginTop: 20,
   },
   buttonGroup: {
     flexDirection: 'row',
@@ -274,6 +359,11 @@ const styles = StyleSheet.create({
   buttonText: {
     color: 'white',
     fontFamily: 'Rajdhani-Light',
+  },
+  skipText: {
+    color: 'white',
+    fontFamily: 'Rajdhani-Medium',
+    marginTop: 30,
   },
   messageText: {
     color: 'white',

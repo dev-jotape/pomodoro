@@ -1,16 +1,18 @@
 import * as React from 'react';
-import {Text, View, StyleSheet} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {createStackNavigator} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Feather';
 import IconIonic from 'react-native-vector-icons/Ionicons';
 import LinearGradient from 'react-native-linear-gradient';
 import {PomodoroPage} from './src/modules/pomodoro/pomodoro.page';
 import {NotesPage} from './src/modules/notes/notes.page';
 import {TodoPage} from './src/modules/todo/todo.page';
-import AsyncStorage from '@react-native-community/async-storage';
+import { SettingsPage } from './src/modules/settings/settings.page';
 
 const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
 const activeTintColor = '#ff260a';
 const inactiveTintColor = '#777';
 
@@ -24,8 +26,8 @@ export default function App() {
       : ['#fff', '#fff'];
   };
 
-  return (
-    <NavigationContainer>
+  const TabNavigator = () => {
+    return (
       <Tab.Navigator
         initialRouteName="Pomodoro"
         screenOptions={({route, navigation}) => {
@@ -78,6 +80,30 @@ export default function App() {
         <Tab.Screen name="Pomodoro" component={PomodoroPage} />
         <Tab.Screen name="Notes" component={NotesPage} />
       </Tab.Navigator>
+    );
+  };
+
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="TabNavigator"
+          component={TabNavigator}
+          options={{
+            headerTransparent: true,
+            title: '',
+          }}
+        />
+        <Stack.Screen
+          name="Settings"
+          component={SettingsPage}
+          options={{
+            headerTransparent: true,
+            title: '',
+            headerLeft: null,
+          }}
+        />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }
