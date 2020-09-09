@@ -13,6 +13,7 @@ import Icon from 'react-native-vector-icons/Feather';
 // import { Container } from './styles';
 import BackgroundTimer from 'react-native-background-timer';
 import Sound from 'react-native-sound';
+import VIForegroundService from '@voximplant/react-native-foreground-service';
 
 enum Status {
   pomodoroRound = 'pomodoroRound',
@@ -42,7 +43,7 @@ export const PomodoroPage: React.FC = ({navigation}) => {
         return;
       }
       // sound.play();
-      if(type === 'work') setSoundWork(sound);
+      if (type === 'work') setSoundWork(sound);
       else setSoundPause(sound);
     };
 
@@ -53,6 +54,39 @@ export const PomodoroPage: React.FC = ({navigation}) => {
       callback(error, sound2, 'work'),
     );
   }, []);
+
+  const startService = async (stateMinutes, stateSeconds, statusParam) => {
+    if (Platform.OS !== 'android') {
+      console.log('Only Android platform is supported');
+      return;
+    }
+
+    if (Platform.Version >= 26) {
+      const channelConfig = {
+        id: 'ForegroundServiceChannel',
+        name: 'Notification Channel',
+        description: 'Notification Channel for Foreground Service',
+        enableVibration: false,
+        importance: 3,
+      };
+      await VIForegroundService.createNotificationChannel(channelConfig);
+    }
+    const notificationConfig = {
+      id: 3456,
+      title: `${getMessageText(statusParam)} ${formatTime(stateMinutes)}:${formatTime(stateSeconds)}`,
+      text: '',
+      icon: 'ic_notification',
+      priority: 0,
+    };
+    if (Platform.Version >= 26) {
+      notificationConfig.channelId = 'ForegroundServiceChannel';
+    }
+    await VIForegroundService.startService(notificationConfig);
+  };
+
+  const stopService = async () => {
+    await VIForegroundService.stopService();
+  };
 
   const startCountDown = (
     stateMinutes: number,
@@ -70,6 +104,8 @@ export const PomodoroPage: React.FC = ({navigation}) => {
     }
 
     let createInterval = BackgroundTimer.setInterval(() => {
+      startService(stateMinutes, stateSeconds, statusParam);
+
       if (stateSeconds === 0) {
         if (stateMinutes === 0) {
           playSound(statusParam);
@@ -93,7 +129,7 @@ export const PomodoroPage: React.FC = ({navigation}) => {
   const playSound = (statusParam: string) => {
     console.log('status ===> ', statusParam);
     if (statusParam === Status.pomodoroRound) soundPause.play();
-    else soundWork.play()
+    else soundWork.play();
   };
   const nextRound = (statusParam: string, roundParam: number) => {
     if (statusParam === Status.pomodoroRound) {
@@ -144,6 +180,7 @@ export const PomodoroPage: React.FC = ({navigation}) => {
     setMinutes(inicialMinutes);
     setSeconds(initialSeconds);
     setTabColor('pomodoro');
+    stopService();
   };
 
   const generateActionButtons = () => {
@@ -204,8 +241,20 @@ export const PomodoroPage: React.FC = ({navigation}) => {
     }
   };
 
+  const getMessageText = (statusParam) => {
+    switch (statusParam) {
+      case Status.pomodoroRound:
+        return 'Foco';
+      case Status.smallBreak:
+        return 'Respire';
+      case Status.longBreak:
+        return 'Pausa Longa';
+      default:
+        break;
+    }
+  };
+
   const goToSettings = () => {
-    console.log('go To Settings');
     navigation.navigate('Settings');
   };
 
