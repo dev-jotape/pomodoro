@@ -5,6 +5,7 @@ import { pomodoroStatus } from '../../services/color'
 export const Container = styled.View`
     background: white;
     height: 100%;
+    flex: 10;
 `
 
 export const Header = styled.View`
@@ -28,8 +29,9 @@ export const ViewInputTodo = styled.View`
     align-items: center;
     display: flex;
     flex-direction: row;
-    position: absolute;
-    bottom: 0;
+    flex: 1;
+    /* position: absolute;
+    bottom: 0; */
     shadow-color: #000;
     shadow-opacity: 0.16;
     shadow-radius: 16px;

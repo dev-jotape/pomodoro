@@ -99,6 +99,7 @@ export const TodoPage: React.FC = ({ navigation }) => {
         <FlatList
           style={{ width: '100%', top: 15 }}
           data={filteredData}
+          removeClippedSubviews={false}
           keyExtractor={item => item.id}
           renderItem={({ item: todo }) => (
             <TodoItem todo={todo} onUpdate={update} onDelete={destroy} 
