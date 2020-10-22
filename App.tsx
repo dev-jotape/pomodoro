@@ -10,20 +10,27 @@ import {PomodoroPage} from './src/modules/pomodoro/pomodoro.page';
 import {NotesPage} from './src/modules/notes/notes.page';
 import {TodoPage} from './src/modules/todo/todo.page';
 import { SettingsPage } from './src/modules/settings/settings.page';
+import AsyncStorage from '@react-native-community/async-storage';
+import { pomodoroStatus } from './src/services/color';
+import { Buffer } from 'buffer';
+global.Buffer = Buffer;
+
+Icon.loadFont();
+IconIonic.loadFont();
+AsyncStorage.setItem('status', 'pomodoro')
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
-const activeTintColor = '#ff260a';
-const inactiveTintColor = '#777';
 
 export default function App() {
   let status = 'pomodoro';
-  const getColor = (color) => {
-    return color === activeTintColor
-      ? status === 'pomodoro'
-        ? ['#EB4B3B', '#D5383C']
-        : ['#17b7dd', '#17b7dd']
-      : ['#fff', '#fff'];
+
+  const getColor = (color: string) => {
+    return color === pomodoroStatus.activeTintColor
+      ? status === pomodoroStatus.pomodoroStatus
+        ? [pomodoroStatus.pomodoroColor, pomodoroStatus.pomodoroColor]
+        : [pomodoroStatus.breakColor, pomodoroStatus.breakColor]
+      : [pomodoroStatus.whiteColor, pomodoroStatus.whiteColor];
   };
 
   const TabNavigator = () => {
@@ -32,12 +39,14 @@ export default function App() {
         initialRouteName="Pomodoro"
         screenOptions={({route, navigation}) => {
           console.log('Voltou pra ca => ', route.params);
-          if (route.params && route.params.status) status = route.params.status;
+          if (route.params && route.params.statusParam) {
+            AsyncStorage.setItem('status', route.params.statusParam)
+            status = route.params.statusParam;
+          }
 
           return {
             tabBarIcon: ({color, size}) => {
               let iconName;
-
               switch (route.name) {
                 case 'Todo':
                   iconName = 'check-square';
@@ -54,7 +63,7 @@ export default function App() {
                         <IconIonic
                           name="timer-outline"
                           size={26}
-                          color={color === activeTintColor ? '#fff' : color}
+                          color={color === pomodoroStatus.activeTintColor ? pomodoroStatus.whiteColor : color}
                         />
                       </LinearGradient>
                     </View>
@@ -67,13 +76,13 @@ export default function App() {
                   break;
               }
 
-              return <Icon name={iconName} size={size} color={color} />;
+              return <Icon name={iconName} size={size} color={color === pomodoroStatus.inactiveTintColor ? color : status === pomodoroStatus.pomodoroStatus ? pomodoroStatus.pomodoroColor : pomodoroStatus.breakColor} />;
             },
           };
         }}
         tabBarOptions={{
-          activeTintColor,
-          inactiveTintColor,
+          activeTintColor: pomodoroStatus.activeTintColor,
+          inactiveTintColor: pomodoroStatus.inactiveTintColor,
           showLabel: false,
         }}>
         <Tab.Screen name="Todo" component={TodoPage} />
@@ -126,7 +135,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    elevation: 6,
+    // elevation: 6,
     shadowColor: '#9C27B0',
     shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.2,

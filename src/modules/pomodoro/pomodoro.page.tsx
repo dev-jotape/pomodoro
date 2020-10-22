@@ -10,6 +10,7 @@ import {
 import LinearGradient from 'react-native-linear-gradient';
 import {CommonActions} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Feather';
+import IonIcon from 'react-native-vector-icons/Ionicons';
 // import { Container } from './styles';
 import BackgroundTimer from 'react-native-background-timer';
 import Sound from 'react-native-sound';
@@ -37,7 +38,6 @@ export const PomodoroPage: React.FC = ({navigation}) => {
 
   useEffect(() => {
     const callback = (error, sound, type) => {
-      console.log('callback');
       if (error) {
         Alert.alert('error', error.message);
         return;
@@ -57,7 +57,6 @@ export const PomodoroPage: React.FC = ({navigation}) => {
 
   const startService = async (stateMinutes, stateSeconds, statusParam) => {
     if (Platform.OS !== 'android') {
-      console.log('Only Android platform is supported');
       return;
     }
 
@@ -94,7 +93,6 @@ export const PomodoroPage: React.FC = ({navigation}) => {
     statusParam = Status.pomodoroRound,
     roundParam = round,
   ) => {
-    console.log('iniciou');
     setStatus(statusParam);
     setRound(roundParam);
     setIsPlaying(true);
@@ -127,7 +125,6 @@ export const PomodoroPage: React.FC = ({navigation}) => {
   };
 
   const playSound = (statusParam: string) => {
-    console.log('status ===> ', statusParam);
     if (statusParam === Status.pomodoroRound) soundPause.play();
     else soundWork.play();
   };
@@ -191,7 +188,11 @@ export const PomodoroPage: React.FC = ({navigation}) => {
           onPress={() => {
             pause();
           }}>
-          <Text style={styles.buttonText}>Pausar</Text>
+            <IonIcon
+              name="pause"
+              size={25}
+              color="white"
+            />
         </TouchableOpacity>
       );
     }
@@ -201,12 +202,20 @@ export const PomodoroPage: React.FC = ({navigation}) => {
           <TouchableOpacity
             style={styles.actionButton}
             onPress={() => startCountDown(minutes, seconds)}>
-            <Text style={styles.buttonText}>Continuar</Text>
+            <IonIcon
+              name="play"
+              size={25}
+              color="white"
+            />
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.actionButton}
             onPress={() => reiniciar()}>
-            <Text style={styles.buttonText}>Reiniciar</Text>
+            <IonIcon
+              name="stop"
+              size={25}
+              color="white"
+            />
           </TouchableOpacity>
         </View>
       );
@@ -215,7 +224,12 @@ export const PomodoroPage: React.FC = ({navigation}) => {
       <TouchableOpacity
         style={styles.actionButton}
         onPress={() => startCountDown(minutes, seconds)}>
-        <Text style={styles.buttonText}>Iniciar</Text>
+          <IonIcon
+            name="play"
+            size={25}
+            color="white"
+          />
+        {/* <Text style={styles.buttonText}>Iniciar</Text> */}
       </TouchableOpacity>
     );
   };
@@ -363,10 +377,12 @@ const styles = StyleSheet.create({
     flex: 5,
   },
   pomodoro: {
-    justifyContent: 'flex-start',
+    justifyContent: 'center',
     alignItems: 'center',
     height: '100%',
     color: 'white',
+    // backgroundColor: 'green',
+    flex: 1,
   },
   headerPomodoro: {},
   headerPular: {},
@@ -401,9 +417,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderColor: 'white',
     borderWidth: 1,
-    height: 80,
-    width: 80,
+    height: 70,
+    width: 70,
     borderRadius: 50,
+    // backgroundColor: 'white'
   },
   buttonText: {
     color: 'white',
