@@ -38,7 +38,6 @@ export default function App() {
       <Tab.Navigator
         initialRouteName="Pomodoro"
         screenOptions={({route, navigation}) => {
-          console.log('Voltou pra ca => ', route.params);
           if (route.params && route.params.statusParam) {
             AsyncStorage.setItem('status', route.params.statusParam)
             status = route.params.statusParam;

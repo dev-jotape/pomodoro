@@ -24,7 +24,6 @@ export const TodoPage: React.FC = ({ navigation }) => {
 
   const getStatus = async () => {
     let statusResponse = await AsyncStorage.getItem('status')
-    console.log('status response => ', statusResponse)
     setStatusPomodoro(statusResponse)
   }
 
@@ -34,7 +33,6 @@ export const TodoPage: React.FC = ({ navigation }) => {
   }
 
   const update = async (item) => {
-    console.log('update ==> ', item)
     const todos = await AsyncStorage.getItem('todos')
     let parseTodo = JSON.parse(todos)
     parseTodo.forEach(todo => {
@@ -102,7 +100,7 @@ export const TodoPage: React.FC = ({ navigation }) => {
           removeClippedSubviews={false}
           keyExtractor={item => item.id}
           renderItem={({ item: todo }) => (
-            <TodoItem todo={todo} onUpdate={update} onDelete={destroy} 
+            <TodoItem todo={todo} onUpdate={update} onDelete={destroy} status={statusPomodoro}
             />
           )}
         />
