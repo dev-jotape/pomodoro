@@ -11,10 +11,10 @@ import LinearGradient from 'react-native-linear-gradient';
 import {CommonActions} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Feather';
 import IonIcon from 'react-native-vector-icons/Ionicons';
-// import { Container } from './styles';
 import BackgroundTimer from 'react-native-background-timer';
 import Sound from 'react-native-sound';
 import VIForegroundService from '@voximplant/react-native-foreground-service';
+import { useDispatch } from "react-redux";
 
 enum Status {
   pomodoroRound = 'pomodoroRound',
@@ -26,6 +26,8 @@ const inicialMinutes = 0;
 const initialSeconds = 10;
 
 export const PomodoroPage: React.FC = ({navigation}) => {
+  const dispatch = useDispatch();
+
   const [isPlaying, setIsPlaying] = useState(false);
   const [isPaused, setPause] = useState(false);
   const [minutes, setMinutes] = useState(inicialMinutes);
@@ -35,6 +37,11 @@ export const PomodoroPage: React.FC = ({navigation}) => {
   const [round, setRound] = useState(1);
   const [soundPause, setSoundPause] = useState(null);
   const [soundWork, setSoundWork] = useState(null);
+  const routeNames = [
+    "Todo",
+    "Pomodoro",
+    "Notes"
+  ];
 
   useEffect(() => {
     const callback = (error, sound, type) => {
@@ -106,6 +113,11 @@ export const PomodoroPage: React.FC = ({navigation}) => {
 
       if (stateSeconds === 0) {
         if (stateMinutes === 0) {
+          dispatch({
+            type: "UPDATE_POMODORO_STATUS",
+            status: statusParam
+          })
+
           playSound(statusParam);
 
           BackgroundTimer.clearInterval(createInterval);
@@ -139,12 +151,13 @@ export const PomodoroPage: React.FC = ({navigation}) => {
   };
 
   const setTabColor = (statusParam: string) => {
-    navigation.dispatch(
-      CommonActions.navigate({
-        name: 'Pomodoro',
+    navigation.dispatch((state) => {
+      console.log(routeNames[state.index])
+      return CommonActions.navigate({
+        name: routeNames[state.index],
         params: {statusParam},
-      }),
-    );
+      })
+    });
   };
 
   const setLongBreak = (roundParam: number) => {
@@ -201,7 +214,7 @@ export const PomodoroPage: React.FC = ({navigation}) => {
         <View style={styles.buttonGroup}>
           <TouchableOpacity
             style={styles.actionButton}
-            onPress={() => startCountDown(minutes, seconds)}>
+            onPress={() => startCountDown(minutes, seconds, status)}>
             <IonIcon
               name="play"
               size={25}

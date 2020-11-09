@@ -24,8 +24,8 @@ const styles = StyleSheet.create({
 });
 
 class TodoItem extends Component {  
-  onTodoItemToggle = (todo, propAction) => {
-    propAction({
+  onTodoItemToggle = (todo, updateStatus) => {
+    updateStatus({
       ...todo,
       completed: !todo.completed,
     });
@@ -41,7 +41,7 @@ class TodoItem extends Component {
   }
 
   render() {
-    let { todo, onUpdate, onDelete, status } = this.props;
+    let { todo, onUpdate, onDelete, status, updateStatus } = this.props;
     return (
       <View style={styles.row}>
         <View
@@ -55,14 +55,14 @@ class TodoItem extends Component {
           }}
         >
           <TouchableOpacity
-            onPress={() => this.onTodoItemToggle(todo, onUpdate)}
+            onPress={() => this.onTodoItemToggle(todo, updateStatus)}
             style={{
               flex: 1,
             }}
           >
             <CheckBox
               checked={todo.completed}
-              onPress={() => this.onTodoItemToggle(todo, onUpdate)}
+              onPress={() => this.onTodoItemToggle(todo, updateStatus)}
               color={status === pomodoroStatus.pomodoroStatus ? pomodoroStatus.pomodoroColor : pomodoroStatus.breakColor}
             />
             </TouchableOpacity>

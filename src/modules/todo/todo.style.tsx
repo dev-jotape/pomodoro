@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { Platform } from 'react-native'
 import { pomodoroStatus } from '../../services/color'
+import Icon from 'react-native-vector-icons/Feather'
 
 export const Container = styled.View`
     background: white;
@@ -16,12 +17,20 @@ export const Header = styled.View`
     shadow-color: #000;
     shadow-opacity: 1.0;
     shadow-radius: 3.8px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 `
 
 export const HeaderTitle = styled.Text`
     margin-left: 10px;
     margin-top: ${Platform.OS === 'ios' ? '30px' : '0'};
     font-size: 17px;
+`
+
+export const IconOptions = styled(Icon)`
+    margin-top: ${Platform.OS === 'ios' ? '30px' : '0'};
+    margin-right: 10px;
 `
 
 export const ViewInputTodo = styled.View`
@@ -40,8 +49,8 @@ export const ViewInputTodo = styled.View`
         width: 0,
         height: 2,
     };
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 `
 
 export const InputTodo = styled.TextInput`
@@ -63,8 +72,19 @@ export const FabButton = styled.TouchableOpacity`
     border-radius: 50px;
     justify-content: center;
     align-items: center;
-    margin-right: 10px
+    margin-right: 10px;
     /* bottom: 10px; */
     /* right: 10px; */
     /* position: absolute; */
 `
+
+export const NoFoundIcon = styled(Icon)`
+    color: ${props => props.status === pomodoroStatus.pomodoroStatus ? pomodoroStatus.pomodoroColor : pomodoroStatus.breakColor };
+`
+
+export const TextNotFound = styled.Text`
+    /* color: ${props => props.status === pomodoroStatus.pomodoroStatus ? pomodoroStatus.pomodoroColor : pomodoroStatus.breakColor }; */
+    margin-top: 10px;
+    font-size: 15px;
+`
+
