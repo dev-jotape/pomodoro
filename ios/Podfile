@@ -9,6 +9,8 @@ target 'pomodoroApp' do
   use_react_native!(:path => config["reactNativePath"])
 
 
+  pod 'react-native-webview', :path => '../node_modules/react-native-webview'
+
   target 'pomodoroAppTests' do
     inherit! :complete
     # Pods for testing
