@@ -14,6 +14,8 @@ import AsyncStorage from '@react-native-community/async-storage';
 import { pomodoroStatus } from './src/services/color';
 import { Buffer } from 'buffer';
 global.Buffer = Buffer;
+import { Provider } from 'react-redux';
+import { Store } from './src/store';
 
 Icon.loadFont();
 IconIonic.loadFont();
@@ -38,9 +40,12 @@ export default function App() {
       <Tab.Navigator
         initialRouteName="Pomodoro"
         screenOptions={({route, navigation}) => {
+          // console.log('route param ==> ', route);
+
           if (route.params && route.params.statusParam) {
             AsyncStorage.setItem('status', route.params.statusParam)
             status = route.params.statusParam;
+            route.params.statusParam = undefined;
           }
 
           return {
@@ -92,27 +97,29 @@ export default function App() {
   };
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="TabNavigator"
-          component={TabNavigator}
-          options={{
-            headerTransparent: true,
-            title: '',
-          }}
-        />
-        <Stack.Screen
-          name="Settings"
-          component={SettingsPage}
-          options={{
-            headerTransparent: true,
-            title: '',
-            headerLeft: null,
-          }}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Provider store={Store}>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen
+            name="TabNavigator"
+            component={TabNavigator}
+            options={{
+              headerTransparent: true,
+              title: '',
+            }}
+          />
+          <Stack.Screen
+            name="Settings"
+            component={SettingsPage}
+            options={{
+              headerTransparent: true,
+              title: '',
+              headerLeft: null,
+            }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </Provider>
   );
 }
 
