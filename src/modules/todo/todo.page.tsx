@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, FlatList, Alert, ActionSheetIOS } from 'react-native';
+import { View, Text, FlatList, Alert, ActionSheetIOS, Platform } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import { Header, HeaderTitle, FabButton, ViewInputTodo, InputTodo, Container, IconOptions, NoFoundIcon, TextNotFound } from './todo.style';
 import Icon from 'react-native-vector-icons/Feather'
@@ -7,7 +7,7 @@ import TodoItem from './components/todo-item';
 import uuid from 'react-native-uuid';
 import { useSelector } from "react-redux";
 import { TouchableHighlight } from 'react-native-gesture-handler';
-
+ 
 export const TodoPage: React.FC = ({ navigation }) => {
   const counter = useSelector(state => state);
 
@@ -168,12 +168,15 @@ export const TodoPage: React.FC = ({ navigation }) => {
         )}
         
       </Container>
-      <ViewInputTodo>
+      <ViewInputTodo
+        behavior={Platform.OS == "ios" ? "padding" : "height"}
+      >
         <InputTodo 
           onChangeText={(text: string) => setValue(text)}
           onSubmitEditing={create}
           value={value}
           placeholder={"O que preciso fazer..."}
+          placeholderTextColor="#b6b6b6" 
         />
         {/* <TouchableOpacity onPress={create} > */}
           <FabButton status={statusPomodoro} onPress={create}>

@@ -1,1 +1,3 @@
 export const UPDATE_POMODORO_STATUS = 'UPDATE_POMODORO_STATUS';
+export const IS_PLAYING = 'IS_PLAYING';
+export const IS_PAUSED = 'IS_PAUSED';

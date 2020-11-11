@@ -15,6 +15,8 @@ import BackgroundTimer from 'react-native-background-timer';
 import Sound from 'react-native-sound';
 import VIForegroundService from '@voximplant/react-native-foreground-service';
 import { useDispatch } from "react-redux";
+import AsyncStorage from '@react-native-community/async-storage';
+import { UPDATE_POMODORO_STATUS } from '../../actions/actionTypes';
 
 enum Status {
   pomodoroRound = 'pomodoroRound',
@@ -27,21 +29,32 @@ const initialSeconds = 10;
 
 export const PomodoroPage: React.FC = ({navigation}) => {
   const dispatch = useDispatch();
-
   const [isPlaying, setIsPlaying] = useState(false);
-  const [isPaused, setPause] = useState(false);
-  const [minutes, setMinutes] = useState(inicialMinutes);
-  const [seconds, setSeconds] = useState(initialSeconds);
+  const [isPaused, setIsPaused] = useState(false);
+  const [minutes, setMinutes] = useState(0);
+  const [seconds, setSeconds] = useState(0);
   const [interval, setStateInterval] = useState(null);
   const [status, setStatus] = useState(Status.pomodoroRound);
   const [round, setRound] = useState(1);
   const [soundPause, setSoundPause] = useState(null);
   const [soundWork, setSoundWork] = useState(null);
+  const [focusTime, setFocusTime] = useState(0);
+  const [shortBreakTime, setShortBreakTime] = useState(0);
+  const [longBreakTime, setLongBreakTime] = useState(0);
+
   const routeNames = [
     "Todo",
     "Pomodoro",
     "Notes"
   ];
+
+  useEffect(() => {
+    const unsubscribe = navigation.addListener('focus', () => {
+      getSettings()
+    });
+
+    return unsubscribe;
+  }, [navigation])
 
   useEffect(() => {
     const callback = (error, sound, type) => {
@@ -60,7 +73,32 @@ export const PomodoroPage: React.FC = ({navigation}) => {
     const sound2 = new Sound(require('./ding_ding_ding.mp3'), (error) =>
       callback(error, sound2, 'work'),
     );
+
+    initConfig()
+
+    // getSettings()
   }, []);
+
+  const initConfig = async () => {
+    console.log('init config ******')
+    await AsyncStorage.setItem('isPlaying', String(false))
+    await AsyncStorage.setItem('isPaused', String(false))
+  }
+
+  const getSettings = async () => {
+    let settings = await AsyncStorage.getItem('settings');
+    settings = JSON.parse(settings);
+    setFocusTime(settings ? settings.focusLength : 25)
+    setShortBreakTime(settings? settings.shortBreakLength : 5)
+    setLongBreakTime(settings ? settings.longBreakLength : 25)
+
+    const isPlayingStorage = await AsyncStorage.getItem('isPlaying')
+    const isPausedStore = await AsyncStorage.getItem('isPaused')
+
+    if(isPlayingStorage !== 'true' && isPausedStore !== 'true') setMinutes(settings ? settings.focusLength : 25)
+    // setMinutes(0)
+    // setSeconds(5)
+  }
 
   const startService = async (stateMinutes, stateSeconds, statusParam) => {
     if (Platform.OS !== 'android') {
@@ -102,7 +140,7 @@ export const PomodoroPage: React.FC = ({navigation}) => {
   ) => {
     setStatus(statusParam);
     setRound(roundParam);
-    setIsPlaying(true);
+    setPlay(true);
     setPause(false);
     if (Platform.OS === 'ios') {
       BackgroundTimer.start();
@@ -113,11 +151,6 @@ export const PomodoroPage: React.FC = ({navigation}) => {
 
       if (stateSeconds === 0) {
         if (stateMinutes === 0) {
-          dispatch({
-            type: "UPDATE_POMODORO_STATUS",
-            status: statusParam
-          })
-
           playSound(statusParam);
 
           BackgroundTimer.clearInterval(createInterval);
@@ -141,6 +174,11 @@ export const PomodoroPage: React.FC = ({navigation}) => {
     else soundWork.play();
   };
   const nextRound = (statusParam: string, roundParam: number) => {
+    dispatch({
+      type: UPDATE_POMODORO_STATUS,
+      status: statusParam
+    })
+
     if (statusParam === Status.pomodoroRound) {
       roundParam === 4 ? setLongBreak(roundParam) : setSmallBreak(roundParam);
     } else if (statusParam === Status.smallBreak) {
@@ -161,23 +199,23 @@ export const PomodoroPage: React.FC = ({navigation}) => {
   };
 
   const setLongBreak = (roundParam: number) => {
-    startCountDown(0, 15, Status.longBreak, roundParam);
+    startCountDown(longBreakTime, 0, Status.longBreak, roundParam);
     setTabColor('break');
   };
 
   const setSmallBreak = (roundParam: number) => {
-    startCountDown(0, 10, Status.smallBreak, roundParam + 1);
+    startCountDown(shortBreakTime, 0, Status.smallBreak, roundParam + 1);
     setTabColor('break');
   };
 
   const setPomodoroRound = (roundParam: number) => {
-    startCountDown(0, 10, Status.pomodoroRound, roundParam);
+    startCountDown(focusTime, 0, Status.pomodoroRound, roundParam);
     setTabColor('pomodoro');
   };
 
   const pause = () => {
     setPause(true);
-    setIsPlaying(false);
+    setPlay(false);
     BackgroundTimer.clearInterval(interval as any);
   };
 
@@ -185,13 +223,23 @@ export const PomodoroPage: React.FC = ({navigation}) => {
     BackgroundTimer.clearInterval(interval as any);
     setStatus(Status.pomodoroRound);
     setPause(false);
-    setIsPlaying(false);
+    setPlay(false);
     setRound(1);
-    setMinutes(inicialMinutes);
-    setSeconds(initialSeconds);
+    setMinutes(focusTime);
+    setSeconds(0);
     setTabColor('pomodoro');
     stopService();
   };
+
+  const setPlay = async (play: boolean) => {
+    await AsyncStorage.setItem('isPlaying', String(play))
+    setIsPlaying(play)
+  }
+
+  const setPause = async (pause: boolean) => {
+    await AsyncStorage.setItem('isPaused', String(pause))
+    setIsPaused(pause)
+  }
 
   const generateActionButtons = () => {
     if (isPlaying) {
@@ -288,15 +336,16 @@ export const PomodoroPage: React.FC = ({navigation}) => {
   const skip = () => {
     Alert.alert('Deseja realmente pular etapa?', '', [
       {
-        text: 'SIM',
+        text: 'Não',
+        style: "cancel"
+      },
+      {
+        text: 'Sim',
         onPress: () => {
           BackgroundTimer.clearInterval(interval);
           nextRound(status, round);
         },
-      },
-      {
-        text: 'NÃO',
-      },
+      }
     ]);
   };
 

@@ -40,7 +40,8 @@ class CreateNote extends React.Component {
         this.richText = React.createRef();
         this.linkModal = React.createRef();
         // const that = this;
-        const theme = props.theme || Appearance.getColorScheme();
+        // const theme = props.theme || Appearance.getColorScheme();
+        const theme = 'light'
         const contentStyle = this.createContentStyle(theme);
         this.state = { theme: theme, contentStyle, emojiVisible: false, disabled: false, statusPomodoro: '', htmlNote: this.props.note ? this.props.note.text : ''};
         // this.htmlNote = this.props.html ? this.props.html : '';
@@ -175,7 +176,8 @@ class CreateNote extends React.Component {
     }
 
     getTitle = () => {
-        return this.state.htmlNote.split('</')[0]
+        let title = this.state.htmlNote.split('</')[0]
+        return title.split('&nbsp')[0]
     }
 
     async saveNote() {
@@ -246,10 +248,10 @@ class CreateNote extends React.Component {
                     </TouchableOpacity>
                 </HeaderTitle>
             </Header>
-            <SafeAreaView style={[styles.container, themeBg]}>
+            {/* <SafeAreaView style={[styles.container, themeBg]}> */}
                 <ScrollView style={[styles.scroll, themeBg]} keyboardDismissMode={'none'}>
                     <RichEditor
-                        initialFocus={true}
+                        initialFocus={false}
                         disabled={disabled}
                         editorStyle={contentStyle} // default light style
                         containerStyle={themeBg}
@@ -304,7 +306,7 @@ class CreateNote extends React.Component {
                     />
                     {emojiVisible && <EmojiView onSelect={this.insertEmoji} />}
                 </KeyboardAvoidingView>
-            </SafeAreaView>
+            {/* </SafeAreaView> */}
             </>
         );
     }

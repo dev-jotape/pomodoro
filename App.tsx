@@ -112,9 +112,7 @@ export default function App() {
             name="Settings"
             component={SettingsPage}
             options={{
-              headerTransparent: true,
-              title: '',
-              headerLeft: null,
+              title: 'Configurações',
             }}
           />
         </Stack.Navigator>

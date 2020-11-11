@@ -33,9 +33,9 @@ export const IconOptions = styled(Icon)`
     margin-right: 10px;
 `
 
-export const ViewInputTodo = styled.View`
+export const ViewInputTodo = styled.KeyboardAvoidingView`
     background-color: #F3F3F3;
-    align-items: center;
+    /* align-items: center; */
     display: flex;
     flex-direction: row;
     flex: 1;
@@ -49,8 +49,8 @@ export const ViewInputTodo = styled.View`
         width: 0,
         height: 2,
     };
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 20px;
+    /* padding-bottom: 10px; */
 `
 
 export const InputTodo = styled.TextInput`
@@ -63,6 +63,7 @@ export const InputTodo = styled.TextInput`
     margin-left: 10px;
     padding-left: 10px;
     height: 40px;
+    margin-top: -5px;
 `
 
 export const FabButton = styled.TouchableOpacity`
@@ -73,6 +74,7 @@ export const FabButton = styled.TouchableOpacity`
     justify-content: center;
     align-items: center;
     margin-right: 10px;
+    margin-top: -5px;
     /* bottom: 10px; */
     /* right: 10px; */
     /* position: absolute; */

@@ -1,6 +1,8 @@
-import { UPDATE_POMODORO_STATUS } from '../actions/actionTypes';
+import { UPDATE_POMODORO_STATUS, IS_PAUSED, IS_PLAYING } from '../actions/actionTypes';
 const initialState = {
-  status: ''
+  status: '',
+  isPlaying: false,
+  isPaused: false
 };
 export const clickReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -8,6 +10,16 @@ export const clickReducer = (state = initialState, action) => {
       return {
         ...state,
         status: action.status
+      };
+    case IS_PLAYING:
+      return {
+        ...state,
+        isPlaying: action.isPlaying
+      };
+    case IS_PAUSED:
+      return {
+        ...state,
+        isPaused: action.isPaused
       };
     default:
       return state;
