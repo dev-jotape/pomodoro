@@ -13,7 +13,7 @@ export const Header = styled.View`
     background: ${props => props.status === pomodoroStatus.pomodoroStatus ? pomodoroStatus.pomodoroColor : pomodoroStatus.breakColor };
     height: ${Platform.OS === 'ios' ? '100px' : '60px'};
     elevation: 10;
-    justify-content: center;
+    /* justify-content: center; */
     shadow-color: #000;
     shadow-opacity: 1.0;
     shadow-radius: 3.8px;
@@ -50,7 +50,7 @@ export const ViewInputTodo = styled.KeyboardAvoidingView`
         height: 2,
     };
     padding-top: 20px;
-    /* padding-bottom: 10px; */
+    padding-bottom: 15px;
 `
 
 export const InputTodo = styled.TextInput`

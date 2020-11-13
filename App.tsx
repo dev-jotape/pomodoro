@@ -88,6 +88,7 @@ export default function App() {
           activeTintColor: pomodoroStatus.activeTintColor,
           inactiveTintColor: pomodoroStatus.inactiveTintColor,
           showLabel: false,
+          keyboardHidesTabBar: true,
         }}>
         <Tab.Screen name="Todo" component={TodoPage} />
         <Tab.Screen name="Pomodoro" component={PomodoroPage} />

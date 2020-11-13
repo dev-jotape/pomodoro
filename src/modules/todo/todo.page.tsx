@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import { View, Text, FlatList, Alert, ActionSheetIOS, Platform } from 'react-native';
+import React, { useEffect, useState, useRef } from 'react';
+import { View, Text, FlatList, Alert, ActionSheetIOS, Platform, TouchableOpacity } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import { Header, HeaderTitle, FabButton, ViewInputTodo, InputTodo, Container, IconOptions, NoFoundIcon, TextNotFound } from './todo.style';
 import Icon from 'react-native-vector-icons/Feather'
 import TodoItem from './components/todo-item';
 import uuid from 'react-native-uuid';
 import { useSelector } from "react-redux";
-import { TouchableHighlight } from 'react-native-gesture-handler';
- 
+import RBSheet from "react-native-raw-bottom-sheet";
+import { orderBy, sortBy } from 'lodash'
+
 export const TodoPage: React.FC = ({ navigation }) => {
   const counter = useSelector(state => state);
 
@@ -37,7 +38,11 @@ export const TodoPage: React.FC = ({ navigation }) => {
       let todos = storageTodos && storageTodos.length ? JSON.parse(storageTodos) : [];
       setFilteredData(todos.filter(el => !el.completed))
     } else {
-      setFilteredData(storageTodos && storageTodos.length ? JSON.parse(storageTodos) : []);
+      if(storageTodos && storageTodos.length) {
+        let orderedTodos = sortBy(JSON.parse(storageTodos), ['completed', 'createdAt'], ['asc', 'asc'])
+        console.log(orderedTodos)
+        setFilteredData(orderedTodos);
+      }
     }
   }
 
@@ -65,7 +70,7 @@ export const TodoPage: React.FC = ({ navigation }) => {
 
     setTimeout(() => {
       update(item)
-    }, 1500)
+    }, 300)
   }
 
   const destroy = async (item) => {
@@ -131,18 +136,69 @@ export const TodoPage: React.FC = ({ navigation }) => {
       }
     );
   }
+  
+  const refRBSheet = useRef();
+
+  const setShowComplete = async () => {
+    const storageCompleted = await AsyncStorage.getItem('showCompleted');
+    const showCompleted = (storageCompleted === "true");
+    console.log('showcomplete => ', showCompleted)
+    await AsyncStorage.setItem('showCompleted', String(!showCompleted))
+    getTodos()
+    refRBSheet.current.close()
+  }
 
   return (
     <>
       <Header status={statusPomodoro}>
         <HeaderTitle style={{color: 'white'}}>Todas Atividades</HeaderTitle>
-        <TouchableHighlight onPress={options}>
+        {Platform.OS === 'android' ? (
+          <>
+            <TouchableOpacity 
+              onPress={() => refRBSheet.current.open()}>
+                <IconOptions
+                  name="more-vertical"
+                  size={25}
+                  color="white"
+                />
+            </TouchableOpacity>
+            <RBSheet
+              ref={refRBSheet}
+              closeOnDragDown={true}
+              closeOnPressMask={true}
+              height={80}
+              customStyles={{
+                container: {
+                  
+                }
+                // wrapper: {
+                //   backgroundColor: "transparent"
+                // },
+                // draggableIcon: {
+                //   backgroundColor: "#fff"
+                // },
+              }}
+            >
+              <View style={{paddingLeft: 20}}>
+                <TouchableOpacity onPress={setShowComplete} style={{flexDirection: 'row', alignItems: 'center'}}>
+                  <>
+                    <Icon name={"eye"} size={20} style={{marginRight: 20}}/>
+                    <Text>Mostar/Esconder tarefas concluídas</Text>
+                  </>
+                </TouchableOpacity>
+              </View>
+            </RBSheet>
+            </>
+        ) : (
+          <TouchableOpacity onPress={options}>
             <IconOptions
               name="more-horizontal"
               size={25}
               color="white"
             />
-          </TouchableHighlight>
+          </TouchableOpacity>
+        )}
+        
       </Header>
       <Container>
         {filteredData && filteredData.length ? (
@@ -169,7 +225,7 @@ export const TodoPage: React.FC = ({ navigation }) => {
         
       </Container>
       <ViewInputTodo
-        behavior={Platform.OS == "ios" ? "padding" : "height"}
+        behavior={Platform.OS == "ios" ? "padding" : "heigth"}
       >
         <InputTodo 
           onChangeText={(text: string) => setValue(text)}
