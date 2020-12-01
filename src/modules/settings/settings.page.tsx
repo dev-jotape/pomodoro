@@ -19,9 +19,9 @@ export const SettingsPage: React.FC = () => {
     let config = await AsyncStorage.getItem('settings')
     config = JSON.parse(config);
     console.log('config ===> ', config)
-    setFocusLength(config ? config.focusLength : 25)
-    setShortBreakLength(config ? config.shortBreakLength : 5)
-    setLongBreakLength(config ? config.longBreakLength : 25)
+    setFocusLength(config.focusLength ? config.focusLength : 25)
+    setShortBreakLength(config.shortBreakLength ? config.shortBreakLength : 5)
+    setLongBreakLength(config.longBreakLength ? config.longBreakLength : 25)
   }
 
   const saveFocusTime = async (time) => {
@@ -31,8 +31,8 @@ export const SettingsPage: React.FC = () => {
     console.log('settingsStorage', settingsStorage)
     await AsyncStorage.setItem('settings', JSON.stringify({
       focusLength: time,
-      shortBreakLength: settingsStorage.shortBreakLength,
-      longBreakLength: settingsStorage.longBreakLength
+      shortBreakLength: shortBreakLength,
+      longBreakLength: longBreakLength
     }))
     getPomodoroConfig()
   }
@@ -41,9 +41,9 @@ export const SettingsPage: React.FC = () => {
     let settingsStorage = await AsyncStorage.getItem('settings');
     settingsStorage = !!settingsStorage ? JSON.parse(settingsStorage) : {}
     await AsyncStorage.setItem('settings', JSON.stringify({
-      focusLength: settingsStorage.focusLength,
+      focusLength: focusLength,
       shortBreakLength: time,
-      longBreakLength: settingsStorage.longBreakLength
+      longBreakLength: longBreakLength
     }))
     getPomodoroConfig()
   }
@@ -52,8 +52,8 @@ export const SettingsPage: React.FC = () => {
     let settingsStorage = await AsyncStorage.getItem('settings');
     settingsStorage = !!settingsStorage ? JSON.parse(settingsStorage) : {}
     await AsyncStorage.setItem('settings', JSON.stringify({
-      focusLength: settingsStorage.focusLength,
-      shortBreakLength: settingsStorage.shortBreakLength,
+      focusLength: focusLength,
+      shortBreakLength: shortBreakLength,
       longBreakLength: time
     }))
     getPomodoroConfig()

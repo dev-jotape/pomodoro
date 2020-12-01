@@ -129,7 +129,7 @@ export const PomodoroPage: React.FC = ({navigation}) => {
   };
 
   const stopService = async () => {
-    await VIForegroundService.stopService();
+    if(Platform.OS === 'android') await VIForegroundService.stopService();
   };
 
   const startCountDown = (
@@ -229,6 +229,11 @@ export const PomodoroPage: React.FC = ({navigation}) => {
     setSeconds(0);
     setTabColor('pomodoro');
     stopService();
+
+    dispatch({
+      type: UPDATE_POMODORO_STATUS,
+      status: ''
+    })
   };
 
   const setPlay = async (play: boolean) => {

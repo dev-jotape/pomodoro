@@ -4,8 +4,10 @@
   "private": true,
   "scripts": {
     "android": "react-native run-android",
-    "ios:se": "react-native run-ios --simulator='iPhone SE (1st generation)'",
-    "ios": "react-native run-ios",
+    "ios:8plus": "react-native run-ios --simulator='iPhone 8 Plus'",
+    "ios": "react-native run-ios --simulator='iPhone 11 Pro Max'",
+    "ios:ipad3": "react-native run-ios --simulator='iPad Pro (12.9-inch) (3th generation)'",
+    "ios:ipad2": "react-native run-ios --simulator='iPad Pro (12.9-inch) (2th generation)'",
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
