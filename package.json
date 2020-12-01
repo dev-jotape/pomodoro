@@ -1,10 +1,11 @@
 {
-  "name": "pomodoroApp",
+  "name": "FocusTime",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
-    "ios": "react-native run-ios --simulator='iPhone SE (1st generation)'",
+    "ios:se": "react-native run-ios --simulator='iPhone SE (1st generation)'",
+    "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
@@ -35,6 +36,7 @@
     "react-native-safe-area-context": "^3.1.4",
     "react-native-screens": "^2.10.1",
     "react-native-sound": "^0.11.0",
+    "react-native-splash-screen": "^3.2.0",
     "react-native-svg": "^12.1.0",
     "react-native-uuid": "^1.4.9",
     "react-native-vector-icons": "^7.0.0",

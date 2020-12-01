@@ -233,6 +233,8 @@ PODS:
     - React-Core
   - react-native-safe-area-context (3.1.8):
     - React-Core
+  - react-native-splash-screen (3.2.0):
+    - React
   - react-native-webview (10.10.0):
     - React-Core
   - React-RCTActionSheet (0.63.2):
@@ -360,6 +362,7 @@ DEPENDENCIES:
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
   - react-native-background-timer (from `../node_modules/react-native-background-timer`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
+  - react-native-splash-screen (from `../node_modules/react-native-splash-screen`)
   - react-native-webview (from `../node_modules/react-native-webview`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
   - React-RCTAnimation (from `../node_modules/react-native/Libraries/NativeAnimation`)
@@ -434,6 +437,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-background-timer"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
+  react-native-splash-screen:
+    :path: "../node_modules/react-native-splash-screen"
   react-native-webview:
     :path: "../node_modules/react-native-webview"
   React-RCTActionSheet:
@@ -507,6 +512,7 @@ SPEC CHECKSUMS:
   React-jsinspector: b14e62ebe7a66e9231e9581279909f2fc3db6606
   react-native-background-timer: 17ea5e06803401a379ebf1f20505b793ac44d0fe
   react-native-safe-area-context: 79fea126c6830c85f65947c223a5e3058a666937
+  react-native-splash-screen: 200d11d188e2e78cea3ad319964f6142b6384865
   react-native-webview: 73e409ecc987c189772bda27ba7f0e2f3dcd2e81
   React-RCTActionSheet: 910163b6b09685a35c4ebbc52b66d1bfbbe39fc5
   React-RCTAnimation: 9a883bbe1e9d2e158d4fb53765ed64c8dc2200c6
@@ -530,6 +536,6 @@ SPEC CHECKSUMS:
   Yoga: 7740b94929bbacbddda59bf115b5317e9a161598
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: eaef125540529d0165b8ea907ad10316094e7a1a
+PODFILE CHECKSUM: b9fa77bab54e6f5cbbf83925c51bb62b7f0816d2
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.0

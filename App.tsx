@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useEffect } from 'react';
 import {View, StyleSheet} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
@@ -16,6 +16,7 @@ import { Buffer } from 'buffer';
 global.Buffer = Buffer;
 import { Provider } from 'react-redux';
 import { Store } from './src/store';
+import SplashScreen from 'react-native-splash-screen';
 
 Icon.loadFont();
 IconIonic.loadFont();
@@ -25,6 +26,9 @@ const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
 export default function App() {
+  useEffect(() => {
+    SplashScreen.hide()
+  }, [])
   let status = 'pomodoro';
 
   const getColor = (color: string) => {

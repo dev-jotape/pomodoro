@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-               BuildableName = "pomodoroApp-tvOS.app"
-               BlueprintName = "pomodoroApp-tvOS"
-               ReferencedContainer = "container:pomodoroApp.xcodeproj">
+               BuildableName = "FocusTime-tvOS.app"
+               BlueprintName = "FocusTime-tvOS"
+               ReferencedContainer = "container:FocusTime.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "pomodoroApp-tvOSTests.xctest"
-               BlueprintName = "pomodoroApp-tvOSTests"
-               ReferencedContainer = "container:pomodoroApp.xcodeproj">
+               BuildableName = "FocusTime-tvOSTests.xctest"
+               BlueprintName = "FocusTime-tvOSTests"
+               ReferencedContainer = "container:FocusTime.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "pomodoroApp-tvOS.app"
-            BlueprintName = "pomodoroApp-tvOS"
-            ReferencedContainer = "container:pomodoroApp.xcodeproj">
+            BuildableName = "FocusTime-tvOS.app"
+            BlueprintName = "FocusTime-tvOS"
+            ReferencedContainer = "container:FocusTime.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "pomodoroApp-tvOS.app"
-            BlueprintName = "pomodoroApp-tvOS"
-            ReferencedContainer = "container:pomodoroApp.xcodeproj">
+            BuildableName = "FocusTime-tvOS.app"
+            BlueprintName = "FocusTime-tvOS"
+            ReferencedContainer = "container:FocusTime.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

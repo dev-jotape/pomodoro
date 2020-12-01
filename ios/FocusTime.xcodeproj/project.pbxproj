@@ -7,21 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00E356F31AD99517003FC87E /* pomodoroAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* pomodoroAppTests.m */; };
-		0F613A798F7A6243B59A16A0 /* libPods-pomodoroApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9084093920B5FCB162406404 /* libPods-pomodoroApp.a */; };
+		00E356F31AD99517003FC87E /* FocusTimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* FocusTimeTests.m */; };
+		0F613A798F7A6243B59A16A0 /* libPods-FocusTime.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9084093920B5FCB162406404 /* libPods-FocusTime.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		2DCD954D1E0B4F2C00145EB5 /* pomodoroAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* pomodoroAppTests.m */; };
+		2DCD954D1E0B4F2C00145EB5 /* FocusTimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* FocusTimeTests.m */; };
 		2DCF44813D224ACBB8A52E2B /* Rajdhani-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E02A3BA94354082AB73270B /* Rajdhani-Light.ttf */; };
-		61786642027F3F4160C13477 /* libPods-pomodoroApp-pomodoroAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADD90F25D6F9BC53C1F4A7F8 /* libPods-pomodoroApp-pomodoroAppTests.a */; };
+		61786642027F3F4160C13477 /* libPods-FocusTime-FocusTimeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADD90F25D6F9BC53C1F4A7F8 /* libPods-FocusTime-FocusTimeTests.a */; };
 		6E221FAD528A433CAF1C6A72 /* Rajdhani-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F47C71149AAB4892B11750A6 /* Rajdhani-SemiBold.ttf */; };
-		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		B6CBE0916940469BB0AAA22D /* Rajdhani-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8FD9E37C92ED485CA98B3DBB /* Rajdhani-Regular.ttf */; };
 		BD02EFF0C34E40B1A6DB34CD /* Abel-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 359DE1EABD93476FA6A9F357 /* Abel-Regular.ttf */; };
+		CFA72B7E2575C7F90047C595 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		E25B48B21A7E49C0BD1B8BBB /* Rajdhani-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0873CD793D4046E4BCAF41EA /* Rajdhani-Bold.ttf */; };
 		EB6D9EC5A55144B68ACBA654 /* Rajdhani-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 678636C0215F4DCD9DDEC03C /* Rajdhani-Medium.ttf */; };
 /* End PBXBuildFile section */
@@ -32,42 +32,42 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = pomodoroApp;
+			remoteInfo = FocusTime;
 		};
 		2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 2D02E47A1E0B4A5D006451C7;
-			remoteInfo = "pomodoroApp-tvOS";
+			remoteInfo = "FocusTime-tvOS";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
-		00E356EE1AD99517003FC87E /* pomodoroAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pomodoroAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* FocusTimeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FocusTimeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* pomodoroAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = pomodoroAppTests.m; sourceTree = "<group>"; };
+		00E356F21AD99517003FC87E /* FocusTimeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FocusTimeTests.m; sourceTree = "<group>"; };
 		0873CD793D4046E4BCAF41EA /* Rajdhani-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Rajdhani-Bold.ttf"; path = "../assets/fonts/Rajdhani-Bold.ttf"; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* pomodoroApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pomodoroApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = pomodoroApp/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = pomodoroApp/AppDelegate.m; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = pomodoroApp/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = pomodoroApp/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = pomodoroApp/main.m; sourceTree = "<group>"; };
-		2D02E47B1E0B4A5D006451C7 /* pomodoroApp-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pomodoroApp-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D02E4901E0B4A5D006451C7 /* pomodoroApp-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "pomodoroApp-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07F961A680F5B00A75B9A /* FocusTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FocusTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = FocusTime/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = FocusTime/AppDelegate.m; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = FocusTime/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = FocusTime/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = FocusTime/main.m; sourceTree = "<group>"; };
+		2D02E47B1E0B4A5D006451C7 /* FocusTime-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FocusTime-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D02E4901E0B4A5D006451C7 /* FocusTime-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FocusTime-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		359DE1EABD93476FA6A9F357 /* Abel-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Abel-Regular.ttf"; path = "../assets/fonts/Abel-Regular.ttf"; sourceTree = "<group>"; };
 		4E02A3BA94354082AB73270B /* Rajdhani-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Rajdhani-Light.ttf"; path = "../assets/fonts/Rajdhani-Light.ttf"; sourceTree = "<group>"; };
 		678636C0215F4DCD9DDEC03C /* Rajdhani-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Rajdhani-Medium.ttf"; path = "../assets/fonts/Rajdhani-Medium.ttf"; sourceTree = "<group>"; };
-		7303F729D693B500250CA806 /* Pods-pomodoroApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pomodoroApp.debug.xcconfig"; path = "Target Support Files/Pods-pomodoroApp/Pods-pomodoroApp.debug.xcconfig"; sourceTree = "<group>"; };
-		739099606636B68A1B17C534 /* Pods-pomodoroApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pomodoroApp.release.xcconfig"; path = "Target Support Files/Pods-pomodoroApp/Pods-pomodoroApp.release.xcconfig"; sourceTree = "<group>"; };
-		783221185626090F62C9C317 /* Pods-pomodoroApp-pomodoroAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pomodoroApp-pomodoroAppTests.release.xcconfig"; path = "Target Support Files/Pods-pomodoroApp-pomodoroAppTests/Pods-pomodoroApp-pomodoroAppTests.release.xcconfig"; sourceTree = "<group>"; };
-		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = pomodoroApp/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7303F729D693B500250CA806 /* Pods-FocusTime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FocusTime.debug.xcconfig"; path = "Target Support Files/Pods-FocusTime/Pods-FocusTime.debug.xcconfig"; sourceTree = "<group>"; };
+		739099606636B68A1B17C534 /* Pods-FocusTime.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FocusTime.release.xcconfig"; path = "Target Support Files/Pods-FocusTime/Pods-FocusTime.release.xcconfig"; sourceTree = "<group>"; };
+		783221185626090F62C9C317 /* Pods-FocusTime-FocusTimeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FocusTime-FocusTimeTests.release.xcconfig"; path = "Target Support Files/Pods-FocusTime-FocusTimeTests/Pods-FocusTime-FocusTimeTests.release.xcconfig"; sourceTree = "<group>"; };
+		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = FocusTime/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8FD9E37C92ED485CA98B3DBB /* Rajdhani-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Rajdhani-Regular.ttf"; path = "../assets/fonts/Rajdhani-Regular.ttf"; sourceTree = "<group>"; };
-		9084093920B5FCB162406404 /* libPods-pomodoroApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-pomodoroApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A12A453DA5D507B581D6A164 /* Pods-pomodoroApp-pomodoroAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pomodoroApp-pomodoroAppTests.debug.xcconfig"; path = "Target Support Files/Pods-pomodoroApp-pomodoroAppTests/Pods-pomodoroApp-pomodoroAppTests.debug.xcconfig"; sourceTree = "<group>"; };
-		ADD90F25D6F9BC53C1F4A7F8 /* libPods-pomodoroApp-pomodoroAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-pomodoroApp-pomodoroAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9084093920B5FCB162406404 /* libPods-FocusTime.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FocusTime.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A12A453DA5D507B581D6A164 /* Pods-FocusTime-FocusTimeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FocusTime-FocusTimeTests.debug.xcconfig"; path = "Target Support Files/Pods-FocusTime-FocusTimeTests/Pods-FocusTime-FocusTimeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		ADD90F25D6F9BC53C1F4A7F8 /* libPods-FocusTime-FocusTimeTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FocusTime-FocusTimeTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F47C71149AAB4892B11750A6 /* Rajdhani-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Rajdhani-SemiBold.ttf"; path = "../assets/fonts/Rajdhani-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -78,7 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				61786642027F3F4160C13477 /* libPods-pomodoroApp-pomodoroAppTests.a in Frameworks */,
+				61786642027F3F4160C13477 /* libPods-FocusTime-FocusTimeTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,7 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F613A798F7A6243B59A16A0 /* libPods-pomodoroApp.a in Frameworks */,
+				0F613A798F7A6243B59A16A0 /* libPods-FocusTime.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,13 +107,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00E356EF1AD99517003FC87E /* pomodoroAppTests */ = {
+		00E356EF1AD99517003FC87E /* FocusTimeTests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* pomodoroAppTests.m */,
+				00E356F21AD99517003FC87E /* FocusTimeTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = pomodoroAppTests;
+			path = FocusTimeTests;
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -124,7 +124,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* pomodoroApp */ = {
+		13B07FAE1A68108700A75B9A /* FocusTime */ = {
 			isa = PBXGroup;
 			children = (
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
@@ -135,7 +135,7 @@
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
-			name = pomodoroApp;
+			name = FocusTime;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
@@ -143,8 +143,8 @@
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
-				9084093920B5FCB162406404 /* libPods-pomodoroApp.a */,
-				ADD90F25D6F9BC53C1F4A7F8 /* libPods-pomodoroApp-pomodoroAppTests.a */,
+				9084093920B5FCB162406404 /* libPods-FocusTime.a */,
+				ADD90F25D6F9BC53C1F4A7F8 /* libPods-FocusTime-FocusTimeTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -172,9 +172,9 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* pomodoroApp */,
+				13B07FAE1A68108700A75B9A /* FocusTime */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* pomodoroAppTests */,
+				00E356EF1AD99517003FC87E /* FocusTimeTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				41C53CAC0CDD48B5B1794B6B /* Resources */,
@@ -188,10 +188,10 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* pomodoroApp.app */,
-				00E356EE1AD99517003FC87E /* pomodoroAppTests.xctest */,
-				2D02E47B1E0B4A5D006451C7 /* pomodoroApp-tvOS.app */,
-				2D02E4901E0B4A5D006451C7 /* pomodoroApp-tvOSTests.xctest */,
+				13B07F961A680F5B00A75B9A /* FocusTime.app */,
+				00E356EE1AD99517003FC87E /* FocusTimeTests.xctest */,
+				2D02E47B1E0B4A5D006451C7 /* FocusTime-tvOS.app */,
+				2D02E4901E0B4A5D006451C7 /* FocusTime-tvOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -199,10 +199,10 @@
 		D858E7CCB515B4D9B4E7E094 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				7303F729D693B500250CA806 /* Pods-pomodoroApp.debug.xcconfig */,
-				739099606636B68A1B17C534 /* Pods-pomodoroApp.release.xcconfig */,
-				A12A453DA5D507B581D6A164 /* Pods-pomodoroApp-pomodoroAppTests.debug.xcconfig */,
-				783221185626090F62C9C317 /* Pods-pomodoroApp-pomodoroAppTests.release.xcconfig */,
+				7303F729D693B500250CA806 /* Pods-FocusTime.debug.xcconfig */,
+				739099606636B68A1B17C534 /* Pods-FocusTime.release.xcconfig */,
+				A12A453DA5D507B581D6A164 /* Pods-FocusTime-FocusTimeTests.debug.xcconfig */,
+				783221185626090F62C9C317 /* Pods-FocusTime-FocusTimeTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -210,9 +210,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* pomodoroAppTests */ = {
+		00E356ED1AD99517003FC87E /* FocusTimeTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "pomodoroAppTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "FocusTimeTests" */;
 			buildPhases = (
 				E4A394F73420436ED5C9D622 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
@@ -225,14 +225,14 @@
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = pomodoroAppTests;
-			productName = pomodoroAppTests;
-			productReference = 00E356EE1AD99517003FC87E /* pomodoroAppTests.xctest */;
+			name = FocusTimeTests;
+			productName = FocusTimeTests;
+			productReference = 00E356EE1AD99517003FC87E /* FocusTimeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* pomodoroApp */ = {
+		13B07F861A680F5B00A75B9A /* FocusTime */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "pomodoroApp" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "FocusTime" */;
 			buildPhases = (
 				A8F432CACF5B1B1D4E79B4CC /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
@@ -246,14 +246,14 @@
 			);
 			dependencies = (
 			);
-			name = pomodoroApp;
-			productName = pomodoroApp;
-			productReference = 13B07F961A680F5B00A75B9A /* pomodoroApp.app */;
+			name = FocusTime;
+			productName = FocusTime;
+			productReference = 13B07F961A680F5B00A75B9A /* FocusTime.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E47A1E0B4A5D006451C7 /* pomodoroApp-tvOS */ = {
+		2D02E47A1E0B4A5D006451C7 /* FocusTime-tvOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "pomodoroApp-tvOS" */;
+			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "FocusTime-tvOS" */;
 			buildPhases = (
 				FD10A7F122414F3F0027D42C /* Start Packager */,
 				2D02E4771E0B4A5D006451C7 /* Sources */,
@@ -265,14 +265,14 @@
 			);
 			dependencies = (
 			);
-			name = "pomodoroApp-tvOS";
-			productName = "pomodoroApp-tvOS";
-			productReference = 2D02E47B1E0B4A5D006451C7 /* pomodoroApp-tvOS.app */;
+			name = "FocusTime-tvOS";
+			productName = "FocusTime-tvOS";
+			productReference = 2D02E47B1E0B4A5D006451C7 /* FocusTime-tvOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E48F1E0B4A5D006451C7 /* pomodoroApp-tvOSTests */ = {
+		2D02E48F1E0B4A5D006451C7 /* FocusTime-tvOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "pomodoroApp-tvOSTests" */;
+			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "FocusTime-tvOSTests" */;
 			buildPhases = (
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
 				2D02E48D1E0B4A5D006451C7 /* Frameworks */,
@@ -283,9 +283,9 @@
 			dependencies = (
 				2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */,
 			);
-			name = "pomodoroApp-tvOSTests";
-			productName = "pomodoroApp-tvOSTests";
-			productReference = 2D02E4901E0B4A5D006451C7 /* pomodoroApp-tvOSTests.xctest */;
+			name = "FocusTime-tvOSTests";
+			productName = "FocusTime-tvOSTests";
+			productReference = 2D02E4901E0B4A5D006451C7 /* FocusTime-tvOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -301,8 +301,9 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = UG25RB3529;
+						DevelopmentTeam = YS5KDB9Y66;
 						LastSwiftMigration = 1120;
+						ProvisioningStyle = Manual;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -315,7 +316,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "pomodoroApp" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "FocusTime" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -328,10 +329,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* pomodoroApp */,
-				00E356ED1AD99517003FC87E /* pomodoroAppTests */,
-				2D02E47A1E0B4A5D006451C7 /* pomodoroApp-tvOS */,
-				2D02E48F1E0B4A5D006451C7 /* pomodoroApp-tvOSTests */,
+				13B07F861A680F5B00A75B9A /* FocusTime */,
+				00E356ED1AD99517003FC87E /* FocusTimeTests */,
+				2D02E47A1E0B4A5D006451C7 /* FocusTime-tvOS */,
+				2D02E48F1E0B4A5D006451C7 /* FocusTime-tvOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -348,8 +349,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				CFA72B7E2575C7F90047C595 /* LaunchScreen.storyboard in Resources */,
 				BD02EFF0C34E40B1A6DB34CD /* Abel-Regular.ttf in Resources */,
 				E25B48B21A7E49C0BD1B8BBB /* Rajdhani-Bold.ttf in Resources */,
 				2DCF44813D224ACBB8A52E2B /* Rajdhani-Light.ttf in Resources */,
@@ -411,7 +412,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-pomodoroApp/Pods-pomodoroApp-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-FocusTime/Pods-FocusTime-resources.sh",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf",
@@ -452,7 +453,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-pomodoroApp/Pods-pomodoroApp-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FocusTime/Pods-FocusTime-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A8F432CACF5B1B1D4E79B4CC /* [CP] Check Pods Manifest.lock */ = {
@@ -470,7 +471,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-pomodoroApp-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-FocusTime-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -483,7 +484,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-pomodoroApp-pomodoroAppTests/Pods-pomodoroApp-pomodoroAppTests-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-FocusTime-FocusTimeTests/Pods-FocusTime-FocusTimeTests-resources.sh",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf",
@@ -524,7 +525,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-pomodoroApp-pomodoroAppTests/Pods-pomodoroApp-pomodoroAppTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FocusTime-FocusTimeTests/Pods-FocusTime-FocusTimeTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E4A394F73420436ED5C9D622 /* [CP] Check Pods Manifest.lock */ = {
@@ -542,7 +543,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-pomodoroApp-pomodoroAppTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-FocusTime-FocusTimeTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -594,7 +595,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E356F31AD99517003FC87E /* pomodoroAppTests.m in Sources */,
+				00E356F31AD99517003FC87E /* FocusTimeTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -620,7 +621,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DCD954D1E0B4F2C00145EB5 /* pomodoroAppTests.m in Sources */,
+				2DCD954D1E0B4F2C00145EB5 /* FocusTimeTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -629,12 +630,12 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* pomodoroApp */;
+			target = 13B07F861A680F5B00A75B9A /* FocusTime */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 		2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2D02E47A1E0B4A5D006451C7 /* pomodoroApp-tvOS */;
+			target = 2D02E47A1E0B4A5D006451C7 /* FocusTime-tvOS */;
 			targetProxy = 2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -642,14 +643,14 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A12A453DA5D507B581D6A164 /* Pods-pomodoroApp-pomodoroAppTests.debug.xcconfig */;
+			baseConfigurationReference = A12A453DA5D507B581D6A164 /* Pods-FocusTime-FocusTimeTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = pomodoroAppTests/Info.plist;
+				INFOPLIST_FILE = FocusTimeTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -659,17 +660,17 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/pomodoroApp.app/pomodoroApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FocusTime.app/FocusTime";
 			};
 			name = Debug;
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 783221185626090F62C9C317 /* Pods-pomodoroApp-pomodoroAppTests.release.xcconfig */;
+			baseConfigurationReference = 783221185626090F62C9C317 /* Pods-FocusTime-FocusTimeTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				INFOPLIST_FILE = pomodoroAppTests/Info.plist;
+				INFOPLIST_FILE = FocusTimeTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -679,20 +680,22 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/pomodoroApp.app/pomodoroApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FocusTime.app/FocusTime";
 			};
 			name = Release;
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7303F729D693B500250CA806 /* Pods-pomodoroApp.debug.xcconfig */;
+			baseConfigurationReference = 7303F729D693B500250CA806 /* Pods-FocusTime.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = UG25RB3529;
+				DEVELOPMENT_TEAM = YS5KDB9Y66;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = pomodoroApp/Info.plist;
+				INFOPLIST_FILE = FocusTime/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -700,8 +703,9 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = pomodoroApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jplsTec.FocusTime;
+				PRODUCT_NAME = FocusTime;
+				PROVISIONING_PROFILE_SPECIFIER = "Focus Time App Store Distribution";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -710,13 +714,15 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 739099606636B68A1B17C534 /* Pods-pomodoroApp.release.xcconfig */;
+			baseConfigurationReference = 739099606636B68A1B17C534 /* Pods-FocusTime.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = UG25RB3529;
-				INFOPLIST_FILE = pomodoroApp/Info.plist;
+				DEVELOPMENT_TEAM = YS5KDB9Y66;
+				INFOPLIST_FILE = FocusTime/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -724,8 +730,9 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = pomodoroApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jplsTec.FocusTime;
+				PRODUCT_NAME = FocusTime;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -743,14 +750,14 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "pomodoroApp-tvOS/Info.plist";
+				INFOPLIST_FILE = "FocusTime-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.pomodoroApp-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.FocusTime-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -770,14 +777,14 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "pomodoroApp-tvOS/Info.plist";
+				INFOPLIST_FILE = "FocusTime-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.pomodoroApp-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.FocusTime-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -796,17 +803,17 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "pomodoroApp-tvOSTests/Info.plist";
+				INFOPLIST_FILE = "FocusTime-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.pomodoroApp-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.FocusTime-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/pomodoroApp-tvOS.app/pomodoroApp-tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FocusTime-tvOS.app/FocusTime-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Debug;
@@ -822,17 +829,17 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "pomodoroApp-tvOSTests/Info.plist";
+				INFOPLIST_FILE = "FocusTime-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.pomodoroApp-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.FocusTime-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/pomodoroApp-tvOS.app/pomodoroApp-tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FocusTime-tvOS.app/FocusTime-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Release;
@@ -953,7 +960,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "pomodoroAppTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "FocusTimeTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -962,7 +969,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "pomodoroApp" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "FocusTime" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -971,7 +978,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "pomodoroApp-tvOS" */ = {
+		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "FocusTime-tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4971E0B4A5E006451C7 /* Debug */,
@@ -980,7 +987,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "pomodoroApp-tvOSTests" */ = {
+		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "FocusTime-tvOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4991E0B4A5E006451C7 /* Debug */,
@@ -989,7 +996,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "pomodoroApp" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "FocusTime" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
