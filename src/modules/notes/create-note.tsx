@@ -249,7 +249,7 @@ class CreateNote extends React.Component {
                 </HeaderTitle>
             </Header>
             {/* <SafeAreaView style={[styles.container, themeBg]}> */}
-                <ScrollView style={[styles.scroll, themeBg]} keyboardDismissMode={'none'}>
+                <ScrollView style={[styles.scroll, themeBg]} keyboardDismissMode={'on-drag'}>
                     <RichEditor
                         initialFocus={false}
                         disabled={disabled}

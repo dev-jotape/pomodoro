@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { View, Text, FlatList, Alert, ActionSheetIOS, Platform, TouchableOpacity } from 'react-native';
+import { View, Text, FlatList, Alert, ActionSheetIOS, Platform, TouchableOpacity, ScrollView, Keyboard } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import { Header, HeaderTitle, FabButton, ViewInputTodo, InputTodo, Container, IconOptions, NoFoundIcon, TextNotFound } from './todo.style';
 import Icon from 'react-native-vector-icons/Feather'
@@ -15,7 +15,32 @@ export const TodoPage: React.FC = ({ navigation }) => {
   const [statusPomodoro, setStatusPomodoro] = useState('');
   const [value, setValue] = useState('');
 
+  // const [padding, setPadding] = useState(20);
+  // const [margin, setMargin] = useState(-5)
+
   const [filteredData, setFilteredData] = useState([])
+
+  // useEffect(() => {
+  //   Keyboard.addListener("keyboardDidShow", _keyboardDidShow);
+  //   Keyboard.addListener("keyboardDidHide", _keyboardDidHide);
+
+  //   return () => {
+  //     Keyboard.removeListener("keyboardDidShow", _keyboardDidShow);
+  //     Keyboard.removeListener("keyboardDidHide", _keyboardDidHide);
+  //   };
+  // }, []);
+
+  // const _keyboardDidShow = () => {
+  //   console.log("Keyboard Shown");
+  //   setPadding(80)
+  //   setMargin(-70)
+  // };
+
+  // const _keyboardDidHide = () => {
+  //   console.log("Keyboard Hidden");
+  //   setPadding(20)
+  //   setMargin(-5)
+  // };
 
   useEffect(() => {
     const unsubscribe = navigation.addListener('focus', () => {
@@ -96,6 +121,7 @@ export const TodoPage: React.FC = ({ navigation }) => {
   }
 
   const create = async () => {
+    if(!value) return 
     const todos = await AsyncStorage.getItem('todos')
     const newTodos = {
       id: uuid.v1(),
@@ -122,7 +148,7 @@ export const TodoPage: React.FC = ({ navigation }) => {
 
     ActionSheetIOS.showActionSheetWithOptions(
       {
-        options: ["Cancel", showCompleted ? "Esconder atividades concluídas" : "Mostrar atividades concluídas"],
+        options: ["Cancel", showCompleted ? "Esconder lembretes concluídos" : "Mostrar lembretes concluídos"],
         // destructiveButtonIndex: 2,
         cancelButtonIndex: 0
       },
@@ -151,7 +177,7 @@ export const TodoPage: React.FC = ({ navigation }) => {
   return (
     <>
       <Header status={statusPomodoro}>
-        <HeaderTitle style={{color: 'white'}}>Todas Atividades</HeaderTitle>
+        <HeaderTitle style={{color: 'white'}}>Todos os lembretes</HeaderTitle>
         {Platform.OS === 'android' ? (
           <>
             <TouchableOpacity 
@@ -183,7 +209,7 @@ export const TodoPage: React.FC = ({ navigation }) => {
                 <TouchableOpacity onPress={setShowComplete} style={{flexDirection: 'row', alignItems: 'center'}}>
                   <>
                     <Icon name={"eye"} size={20} style={{marginRight: 20}}/>
-                    <Text>Mostar/Esconder tarefas concluídas</Text>
+                    <Text>Mostar/Esconder lembretes concluídos</Text>
                   </>
                 </TouchableOpacity>
               </View>
@@ -200,32 +226,9 @@ export const TodoPage: React.FC = ({ navigation }) => {
         )}
         
       </Header>
-      <Container>
-        {filteredData && filteredData.length ? (
-          <FlatList
-            style={{ width: '100%', top: 15 }}
-            data={filteredData}
-            removeClippedSubviews={false}
-            keyExtractor={item => item.id}
-            renderItem={({ item: todo }) => (
-              <TodoItem todo={todo} onUpdate={update} onDelete={destroy} updateStatus={updateStatus} status={statusPomodoro}
-              />
-            )}
-          />
-        ) : (
-          <View style={{height: '100%', justifyContent: 'center', alignItems: 'center'}}>
-            <NoFoundIcon
-              name="search"
-              size={40}
-              status={statusPomodoro}
-            />
-            <TextNotFound status={statusPomodoro}>Nenhuma tarefa encontrada...</TextNotFound>
-          </View>
-        )}
-        
-      </Container>
       <ViewInputTodo
         behavior={Platform.OS == "ios" ? "padding" : "heigth"}
+        // keyboardVerticalOffset={40}
       >
         <InputTodo 
           onChangeText={(text: string) => setValue(text)}
@@ -244,6 +247,33 @@ export const TodoPage: React.FC = ({ navigation }) => {
           </FabButton>
         {/* </TouchableOpacity> */}
       </ViewInputTodo>
+      <Container>
+        {filteredData && filteredData.length ? (
+          <FlatList
+            style={{ width: '100%', top: 15 }}
+            data={filteredData}
+            removeClippedSubviews={false}
+            keyExtractor={item => item.id}
+            renderItem={({ item: todo }) => (
+              <TodoItem todo={todo} onUpdate={update} onDelete={destroy} updateStatus={updateStatus} status={statusPomodoro}
+              />
+            )}
+          />
+        ) : (
+          <ScrollView contentContainerStyle={{flexGrow: 1}} keyboardShouldPersistTaps='handled' >
+            <View style={{height: '100%', justifyContent: 'center', alignItems: 'center'}}>
+            <NoFoundIcon
+              name="search"
+              size={40}
+              status={statusPomodoro}
+            />
+            <TextNotFound status={statusPomodoro}>Nenhum lembrete encontrado...</TextNotFound>
+            </View>
+          </ScrollView>
+        )}
+        
+      </Container>
+      
     </>
   );
 }

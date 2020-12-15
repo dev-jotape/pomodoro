@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "android": "react-native run-android",
-    "ios:8plus": "react-native run-ios --simulator='iPhone 8 Plus'",
-    "ios": "react-native run-ios --simulator='iPhone 11 Pro Max'",
+    "ios:8plus": "react-native run-ios --simulator='iPhone 8 Plus'  --simulator='iPhone 11 Pro Max'",
+    "ios": "react-native run-ios",
     "ios:ipad3": "react-native run-ios --simulator='iPad Pro (12.9-inch) (3th generation)'",
     "ios:ipad2": "react-native run-ios --simulator='iPad Pro (12.9-inch) (2th generation)'",
     "start": "react-native start",

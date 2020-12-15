@@ -6,6 +6,7 @@ import {
   Text,
   Alert,
   Platform,
+  Vibration
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {CommonActions} from '@react-navigation/native';
@@ -13,6 +14,7 @@ import Icon from 'react-native-vector-icons/Feather';
 import IonIcon from 'react-native-vector-icons/Ionicons';
 import BackgroundTimer from 'react-native-background-timer';
 import Sound from 'react-native-sound';
+Sound.setCategory('Playback')
 import VIForegroundService from '@voximplant/react-native-foreground-service';
 import { useDispatch } from "react-redux";
 import AsyncStorage from '@react-native-community/async-storage';
@@ -47,6 +49,18 @@ export const PomodoroPage: React.FC = ({navigation}) => {
     "Pomodoro",
     "Notes"
   ];
+
+  const ONE_SECOND_IN_MS = 1000;
+
+  const PATTERN = [
+    0,
+    1 * ONE_SECOND_IN_MS
+  ];
+
+  const PATTERN_DESC =
+    Platform.OS === "android"
+      ? "wait 1s, vibrate 2s, wait 3s"
+      : "wait 1s, vibrate, wait 2s, vibrate, wait 3s";
 
   useEffect(() => {
     const unsubscribe = navigation.addListener('focus', () => {
@@ -148,7 +162,7 @@ export const PomodoroPage: React.FC = ({navigation}) => {
 
     let createInterval = BackgroundTimer.setInterval(() => {
       startService(stateMinutes, stateSeconds, statusParam);
-
+      console.log(`interval: ${stateMinutes}:${stateSeconds}`)
       if (stateSeconds === 0) {
         if (stateMinutes === 0) {
           playSound(statusParam);
@@ -170,6 +184,7 @@ export const PomodoroPage: React.FC = ({navigation}) => {
   };
 
   const playSound = (statusParam: string) => {
+    Vibration.vibrate(PATTERN)
     if (statusParam === Status.pomodoroRound) soundPause.play();
     else soundWork.play();
   };

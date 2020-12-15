@@ -80,6 +80,16 @@ export const NotesPage: React.FC = ({ navigation }) => {
       <Header status={statusPomodoro}>
         <HeaderTitle style={{color: 'white'}}>Todas as Notas</HeaderTitle>
       </Header>
+      <ViewInputTodo>
+        <Text style={{flex: 1, textAlign: 'center'}}>{filteredData.length} Notas</Text>
+        <FabButton status={statusPomodoro} onPress={goToCreateNote}>
+          <Icon
+            name="plus"
+            size={25}
+            color="white"
+          />
+        </FabButton>
+      </ViewInputTodo>
       <Container>
         {filteredData && filteredData.length ? (
           <FlatList
@@ -107,16 +117,7 @@ export const NotesPage: React.FC = ({ navigation }) => {
           </View>
         )}
       </Container>
-      <ViewInputTodo>
-        <Text style={{flex: 1, textAlign: 'center'}}>{filteredData.length} Notas</Text>
-        <FabButton status={statusPomodoro} onPress={goToCreateNote}>
-          <Icon
-            name="plus"
-            size={25}
-            color="white"
-          />
-        </FabButton>
-      </ViewInputTodo>
+      
         <Modal transparent={true}
          visible={modalVisible}
          onRequestClose={() => closeModal()}>
